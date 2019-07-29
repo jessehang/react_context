@@ -5,4 +5,8 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '../public/dist')));
 
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../public/dist/index.html'));
+});
+
 app.listen(port, () => console.log(`Connected to port: ${port}`));
